@@ -1,0 +1,2 @@
+апр. 21, 2023 1:21:45 PM less_2.task_1 saveToFile
+WARNING: /d/d/parser.txt (No such file or directory)

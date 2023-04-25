@@ -1,0 +1,10 @@
+апр. 21, 2023 3:24:23 PM less_2.task_3 bubbleSort
+INFO: [11, 3, 14, 16, 7]
+апр. 21, 2023 3:24:23 PM less_2.task_3 bubbleSort
+INFO: [3, 11, 14, 7, 16]
+апр. 21, 2023 3:24:23 PM less_2.task_3 bubbleSort
+INFO: [3, 11, 7, 14, 16]
+апр. 21, 2023 3:24:23 PM less_2.task_3 bubbleSort
+INFO: [3, 7, 11, 14, 16]
+апр. 21, 2023 3:24:23 PM less_2.task_3 bubbleSort
+INFO: [3, 7, 11, 14, 16]
