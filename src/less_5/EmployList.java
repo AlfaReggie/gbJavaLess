@@ -1,11 +1,12 @@
 package less_5;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class EmployList {
-    Map<String, Integer> tMap = new TreeMap<>();
+    Map<String, Integer> tMap = new TreeMap<>(Collections.reverseOrder());
 
     void addEmploy(ArrayList<String> employNameList) {
         for (int i = 0; i < employNameList.size() - 1; i++) {
