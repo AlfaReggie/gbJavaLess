@@ -17,7 +17,7 @@ public class testLinkedList {
         ll.removeFirst();
     }
 
-    void first(LinkedList<Object> ll) {
-        System.out.println(ll.get(0));
+    Object first(LinkedList<Object> ll) {
+        return ll.get(0);
     }
 }

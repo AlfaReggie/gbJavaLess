@@ -28,8 +28,8 @@ public class testArrays {
         return arr2;
     }
 
-    void first(Integer arr[]) {
-        System.out.println(arr[0]);
+    Integer first(Integer arr[]) {
+        return arr[0];
     }
 }
 
