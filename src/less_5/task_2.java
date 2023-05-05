@@ -22,8 +22,11 @@ public class task_2 {
 
         EmployList listEmpl = new EmployList();
 
-        listEmpl.addEmploy(employList);
+        listEmpl.add(employList);
+
+        listEmpl.addEmploy();
 
         System.out.println(listEmpl.print());
+
     }
 }
