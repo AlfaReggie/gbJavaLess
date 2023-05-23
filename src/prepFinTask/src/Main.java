@@ -23,13 +23,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        String[][] params_value_str = {{"Intel Core i9", "Intel Core i7", "AMD Ryzen 7", "Intel Core i5", "Apple M2", "Apple M2 Pro"},
-                {"GeForce RTX 1080", "GeForce RTX 3050", "GeForce RTX 3060", "GeForce RTX 3070",
-                        "GeForce RTX 3080", "GeForce GTX980M", "Apple M2", "Apple M2 Pro"}, {"Windows", "MacOS", "Linus"}, {"black", "grey", "red"}, {"plastic", "metal"}};
-        Integer[][] params_value_int = {{16, 24, 32, 64, 128}, {512, 1024, 2048, 3072}};
-
-        Double[][] params_value_double = {{13.3, 14.2, 13.6, 15.6, 16.0, 17.3}};
-
         Notebook notebook1 = new Notebook("MSI Titan GT77", "Intel Core i9", 128,
                 "GeForce RTX 3080", 17.3, 3072, "Windows",
                 "black", "plastic", 344.0);
@@ -103,51 +96,9 @@ public class Main {
             }
         }
 
-        Scanner scanner = new Scanner(System.in);
-        HashMap<Integer, Object> search_param = new HashMap<>();
-
-        while (true) {
-            for (int i = 1; i < notebook1.name_param.size() - 1; i++) {
-                System.out.println(i + ": " + notebook1.name_param.get(i));
-            }
-            System.out.println("Enter number param or 0 for exit: ");
-            int choise_param = scanner.nextInt();
-            if (choise_param == 0) {
-                break;
-            }
-
-            if (choise_param <= 5) {
-                for (int idx1 = 0; idx1 < params_value_str[choise_param - 1].length; idx1++) {
-                    System.out.println(idx1 + 1 + ": " + params_value_str[choise_param - 1][idx1]);
-                }
-                System.out.println("Enter number " + notebook1.name_param.get(choise_param) + ": ");
-                int choise_value = scanner.nextInt();
-
-                search_param.put(choise_param, params_value_str[choise_param - 1][choise_value - 1]);
-
-            } else if (choise_param < 8) {
-                for (int idx2 = 0; idx2 < params_value_int[choise_param - params_value_str.length - 1].length; idx2++) {
-                    System.out.println(idx2 + 1 + ": " + params_value_int[choise_param - params_value_str.length - 1][idx2]);
-                }
-                System.out.println("Enter number " + notebook1.name_param.get(choise_param) + ": ");
-                int choise_value = scanner.nextInt();
-
-                search_param.put(choise_param, params_value_int[choise_param - params_value_str.length - 1]
-                        [choise_value - 1]);
-            } else if (choise_param < 9) {
-                for (int idx3 = 0; idx3 < params_value_double[choise_param - params_value_str.length - params_value_int.length - 1].length; idx3++) {
-                    System.out.println(idx3 + 1 + ": " + params_value_double[choise_param - params_value_str.length - params_value_int.length - 1][idx3]);
-                }
-                System.out.println("Enter number " + notebook1.name_param.get(choise_param) + ": ");
-                int choise_value = scanner.nextInt();
-
-                search_param.put(choise_param, params_value_double[choise_param - params_value_str.length - params_value_int.length - 1]
-                        [choise_value - 1]);
-            }
-            System.out.println(search_param);
-        }
-
         HashSet<Notebook> good_nbook = new HashSet<>();
+
+        HashMap<Integer, Object> search_param = search_params();
 
         for (Notebook nbook: notebooks) {
             boolean flag = true;
@@ -175,5 +126,62 @@ public class Main {
         for (Notebook good_notebook: good_nbook) {
             System.out.println(good_notebook);
         }
+    }
+
+    public static HashMap<Integer, Object> search_params() {
+
+        Notebook notebook = new Notebook("test", "Intel Core i7", 16,
+                "test", 16.1, 1024, "MacOS",
+                "grey", "metal", 117.0);
+
+        String[][] params_value_str = {{"Intel Core i9", "Intel Core i7", "AMD Ryzen 7", "Intel Core i5", "Apple M2", "Apple M2 Pro"},
+                {"GeForce RTX 1080", "GeForce RTX 3050", "GeForce RTX 3060", "GeForce RTX 3070",
+                        "GeForce RTX 3080", "GeForce GTX980M", "Apple M2", "Apple M2 Pro"}, {"Windows", "MacOS", "Linus"}, {"black", "grey", "red"}, {"plastic", "metal"}};
+        Integer[][] params_value_int = {{16, 24, 32, 64, 128}, {512, 1024, 2048, 3072}};
+
+        Double[][] params_value_double = {{13.3, 14.2, 13.6, 15.6, 16.0, 17.3}};
+        Scanner scanner = new Scanner(System.in);
+        HashMap<Integer, Object> search_param = new HashMap<>();
+
+        while (true) {
+            for (int i = 1; i < notebook.name_param.size() - 1; i++) {
+                System.out.println(i + ": " + notebook.name_param.get(i));
+            }
+            System.out.println("Enter number param or 0 for exit: ");
+            int choise_param = scanner.nextInt();
+            if (choise_param == 0) {
+                break;
+            }
+
+            if (choise_param <= 5) {
+                for (int idx1 = 0; idx1 < params_value_str[choise_param - 1].length; idx1++) {
+                    System.out.println(idx1 + 1 + ": " + params_value_str[choise_param - 1][idx1]);
+                }
+                System.out.println("Enter number " + notebook.name_param.get(choise_param) + ": ");
+                int choise_value = scanner.nextInt();
+
+                search_param.put(choise_param, params_value_str[choise_param - 1][choise_value - 1]);
+
+            } else if (choise_param < 8) {
+                for (int idx2 = 0; idx2 < params_value_int[choise_param - params_value_str.length - 1].length; idx2++) {
+                    System.out.println(idx2 + 1 + ": " + params_value_int[choise_param - params_value_str.length - 1][idx2]);
+                }
+                System.out.println("Enter number " + notebook.name_param.get(choise_param) + ": ");
+                int choise_value = scanner.nextInt();
+
+                search_param.put(choise_param, params_value_int[choise_param - params_value_str.length - 1]
+                        [choise_value - 1]);
+            } else if (choise_param < 9) {
+                for (int idx3 = 0; idx3 < params_value_double[choise_param - params_value_str.length - params_value_int.length - 1].length; idx3++) {
+                    System.out.println(idx3 + 1 + ": " + params_value_double[choise_param - params_value_str.length - params_value_int.length - 1][idx3]);
+                }
+                System.out.println("Enter number " + notebook.name_param.get(choise_param) + ": ");
+                int choise_value = scanner.nextInt();
+
+                search_param.put(choise_param, params_value_double[choise_param - params_value_str.length - params_value_int.length - 1]
+                        [choise_value - 1]);
+            }
+        }
+        return search_param;
     }
 }
